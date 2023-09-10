@@ -24,7 +24,7 @@
   - Multiplication ```*```
   - Exponent ```**```
  
-* Number manipulation and F strings
+* Number manipulation and F-strings
   - Round ```round(25.3333, 2)```
   - Floor ```8 // 3```
   - F string ```f"I am {15} years old"```
