@@ -4,18 +4,10 @@
 **Project:** Band Name Generator
 
 **Topics:**
-* print() function
-  
-```print("Hello world!")```
+* print() function ```print("Hello world!")```
 
-* String manipulation
+* String manipulation ```print("Hello" + " " + "world!")```
 
-```print("Hello" + " " + "world!")```
+* input() function ```input("What is your name? ")```
 
-* input() function
-
-```input("What is your name? ")```
-
-* Variables
-
-```number = 5```
+* Variables ```number = 5```
