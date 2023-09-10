@@ -11,7 +11,7 @@
   - Float ```12.5```
   - Boolean ```True``` or ```False```
 
-* TypeError ```print(len(123))```
+* TypeError ```len(123)```
 
 * Type checking ```type(123)```
 
