@@ -5,27 +5,23 @@
 **Project:** Treasure Island
 
 **Topics:**
-* Data types
-  - String ```"Hello"```
-  - Integer ```123```
-  - Float ```12.5```
-  - Boolean ```True``` or ```False```
-
-* TypeError ```len(123)```
-
-* Type checking ```type(123)```
-
-* Type casting ```str(123)```
-
-* Mathematical operators
-  - Addition ```+```
-  - Subtraction ```-```
-  - Division ```/```
-  - Multiplication ```*```
-  - Exponent ```**```
- 
-* Number manipulation and F-strings
-  - Round ```round(25.3333, 2)```
-  - Floor ```8 // 3```
-  - F string ```f"I am {15} years old"```
-  - ```+=, -=, /=, *=```
+* Comparison operators ```<, >, <=, >=, !=, ==```
+* Nested if statements and elif statements
+  ```
+  if a:
+    then b
+  elif c:
+    then d
+  else:
+    e
+  ```
+* Multiple if statements
+  ```
+  if a:
+    then b
+  if c:
+    then d
+  else:
+    e
+  ```
+* Logical operators ```and, or, not```
