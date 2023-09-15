@@ -5,23 +5,12 @@
 **Project:** Rock Paper Scissors
 
 **Topics:**
-* Comparison operators ```<, >, <=, >=, !=, ==```
-* Nested if statements and elif statements
+* Random module ```random.randint(0,5)```
+* Data structure - Lists ```states_of_america = ["Delaware", "Pennsylvania"]```
+* Nested Lists
   ```
-  if a:
-    then b
-  elif c:
-    then d
-  else:
-    e
+  list1 = [1, 2, 3]
+  list2 = [4, 5]
+
+  nested_list = [list1, list2]
   ```
-* Multiple if statements
-  ```
-  if a:
-    then b
-  if c:
-    then d
-  else:
-    e
-  ```
-* Logical operators ```and, or, not```
