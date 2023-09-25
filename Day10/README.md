@@ -35,31 +35,3 @@
       "key1": [list2],
   }
   ```
-* Nesting a dictionary in a dictionary
-  ```
-  dictionary = {
-      "key1": {
-              "inner_key1": [list1],
-              "inner_key2": value2
-      },
-      "key2": {
-              "inner_key1": [list2],
-              "inner_key2": value2
-      },
-  }
-  ```
-* Nesting a dictionary in a list
-  ```
-  list = [
-    {
-        "key1": "value1", 
-        "key2": [value2], 
-        "key3": value3
-    },
-    {
-        "key1": "value1", 
-        "key2": [value2], 
-        "key3": value3
-    },
-  ]
-  ```
