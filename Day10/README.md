@@ -5,33 +5,34 @@
 **Project:** Calculator
 
 **Topics:**
-* Dictionary
+* Functions with outputs
   ```
-  dictionary = {
-      key: value
-  }
+  def function(input):
+    output = do something
+    return output
   ```
-* Retrieving items from a dictionary
+* Multiple return values
   ```
-  dictionary[key]
+  def function(input):
+    output = do something
+    if condition:
+      return something else
+    return output
   ```
-* Empty dictionary
+* Docstrings
   ```
-  empty_dictionary = {}
+  def function(input):
+    """
+    I am a docstring, and I tell people what a function is about
+    I can also be in multiple lines.
+    """
+    return output
   ```
-* Edit an item in a dictionary
+* Multiline comment
   ```
-  dictionary[key] = value
-  ```
-* Loop through a dictionary
-  ```
-  for key in dictionary:
-    print(f"{key}: {dictionary[key]}")
-  ```
-* Nesting a list in a dictionary
-  ```
-  dictionary = {
-      "key1": [list1],
-      "key1": [list2],
-  }
+  """
+  If used outside a function, I am a multiline comment.
+  However, it is not advisable to use me.
+  Use a single-line comment instead - '#'.
+  """
   ```
