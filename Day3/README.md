@@ -2,7 +2,7 @@
 
 **Stage:** Beginner
 
-**Project:** Treasure Island
+**Project:** Treasure Island (play [here](https://replit.com/@GloryOdeyemi/Treasure-Island?v=1))
 
 **Topics:**
 * Comparison operators ```<, >, <=, >=, !=, ==```
