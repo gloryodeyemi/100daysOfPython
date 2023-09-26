@@ -2,7 +2,7 @@
 
 **Stage:** Beginner
 
-**Project:** Rock Paper Scissors
+**Project:** Rock Paper Scissors (play [here](https://replit.com/@GloryOdeyemi/RockPaperScissors?v=1))
 
 **Topics:**
 * Random module ```random.randint(0,5)```
