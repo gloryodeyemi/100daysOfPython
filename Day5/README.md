@@ -2,7 +2,7 @@
 
 **Stage:** Beginner
 
-**Project:** Password Generator
+**Project:** Password Generator (try [here](https://replit.com/@GloryOdeyemi/PasswordGenerator?v=1))
 
 **Topics:**
 * For loop
