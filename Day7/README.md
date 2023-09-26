@@ -2,4 +2,4 @@
 
 **Stage:** Beginner
 
-**Project:** Hangman (try [here](https://replit.com/@GloryOdeyemi/Hangman?v=1))
+**Project:** Hangman (play [here](https://replit.com/@GloryOdeyemi/Hangman?v=1))
