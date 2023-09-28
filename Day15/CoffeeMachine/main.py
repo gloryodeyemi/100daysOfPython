@@ -25,7 +25,6 @@ MENU = {
         "cost": 3.0,
     }
 }
-
 # TODO: 1. Create function to print report
 # TODO: 2. Create function to check if resource is sufficient
 # TODO: 3. Create function to process coins
@@ -146,7 +145,7 @@ def coffee_machine():
 
                 # check if the amount user paid is sufficient
                 coffee_price = transaction_successful(amount_paid, MENU, user_request)
-                
+
                 if coffee_price > 0:  # continue if amount is sufficient
                     money_made += coffee_price  # add the coffee price to the money made by the machine
                     # deduct the resources used from the available resources
