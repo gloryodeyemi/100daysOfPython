@@ -1,4 +1,4 @@
-import art
+import art  # import the coffee machine art
 
 MENU = {
     "espresso": {
