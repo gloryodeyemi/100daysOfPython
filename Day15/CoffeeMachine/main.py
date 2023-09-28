@@ -144,9 +144,12 @@ def coffee_machine():
                 pennies = int(input("How many pennies?: "))
                 amount_paid = process_coins(quarters, dimes, nickles, pennies)  # calculate the total amount user paid
 
+                # check if the amount user paid is sufficient
                 coffee_price = transaction_successful(amount_paid, MENU, user_request)
-                if coffee_price > 0:
-                    money_made += coffee_price
+                
+                if coffee_price > 0:  # continue if amount is sufficient
+                    money_made += coffee_price  # add the coffee price to the money made by the machine
+                    # deduct the resources used from the available resources
                     resources = make_coffee(resources, MENU, user_request)
 
 
