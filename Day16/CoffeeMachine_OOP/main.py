@@ -32,4 +32,3 @@ while prompt == "on":
                 is_transaction_successful = money_m.make_payment(order.cost)
                 if is_transaction_successful:
                     cf_maker.make_coffee(order)
-                    print("hey")
