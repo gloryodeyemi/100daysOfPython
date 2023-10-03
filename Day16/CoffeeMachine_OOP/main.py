@@ -9,7 +9,7 @@ print(art.logo_name)  # display the coffee machine logo name
 cf_maker = CoffeeMaker()  # create an object of the coffee maker class
 money_m = MoneyMachine()  # create an object of the money machine class
 coffee_menu = Menu()  # create an object of the menu class
-prompt = "on" # set the coffee machine on as default
+prompt = "on"  # set the coffee machine on as default
 
 # keep making coffee as long as machine is on
 while prompt == "on":
