@@ -7,4 +7,4 @@ for question_dict in question_data:
     question_bank.append(Question(question_dict['text'], question_dict['answer']))
 
 print(len(question_bank))
-print(question_bank)
+print(question_bank[8].text)
