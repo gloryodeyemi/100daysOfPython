@@ -1,8 +1,12 @@
 class QuizBrain:
-    def __init__(self, q_list):
+    def __init__(self, q_list, q_difficulty):
         self.question_number = 0
         self.question_list = q_list
         self.score = 0
+        self.difficulty = q_difficulty
+
+    def questions(self):
+        print(f"\nThere are {len(self.question_list)} questions in the '{self.difficulty}' difficulty.\n")
 
     def still_has_questions(self):
         return self.question_number < len(self.question_list)
