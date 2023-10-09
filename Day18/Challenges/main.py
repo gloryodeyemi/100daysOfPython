@@ -1,4 +1,4 @@
-from turtle import *
+from turtle import Turtle, Screen
 
 # challenge 1 - Draw a Square
 square_turtle = Turtle()
