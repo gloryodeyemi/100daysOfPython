@@ -10,4 +10,9 @@ timmy_the_turtle.right(90)
 screen = Screen()
 screen.exitonclick()
 
-
+# ways to import
+"""
+import turtle
+from turtle import  Turtle
+from turtle import *
+"""

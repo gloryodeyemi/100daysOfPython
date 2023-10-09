@@ -1,11 +1,11 @@
 from turtle import *
 
+# challenge 1 - Draw a Square
 square_turtle = Turtle()
 square_turtle.shape("turtle")
 square_turtle.color("DarkViolet")
 
-
-for i in range(4):
+for _ in range(4):
     square_turtle.forward(200)
     square_turtle.right(90)
 
