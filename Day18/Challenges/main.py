@@ -1,16 +1,23 @@
 from turtle import Turtle, Screen
 
-# challenge 1 - Draw a Square
-square_turtle = Turtle()
-square_turtle.shape("turtle")
-square_turtle.color("DarkViolet")
+cal = Turtle()
+cal.shape("turtle")
+cal.color("DarkViolet")
+screen = Screen()
 
+# challenge 1 - Draw a square
 for _ in range(4):
-    square_turtle.forward(200)
-    square_turtle.right(90)
+    cal.forward(100)
+    cal.right(90)
 
-# square_turtle.home()
-# clearscreen()
+cal.clear()
+
+# challenge 2 - Draw a dashed line
+for _ in range(15):
+    cal.forward(10)
+    cal.penup()
+    cal.forward(10)
+    cal.pendown()
 
 # # algorithmic patterns
 # for steps in range(100):
@@ -20,5 +27,4 @@ for _ in range(4):
 #         right(30)
 
 
-screen = Screen()
 screen.exitonclick()
