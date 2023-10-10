@@ -20,7 +20,7 @@ def return_cal():
     cal.penup()
     cal.home()
     cal.pendown()
-    
+
 
 # challenge 1 - Draw a square
 for _ in range(4):

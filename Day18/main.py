@@ -13,7 +13,7 @@ screen.exitonclick()
 # ways to import
 """
 import turtle
-from turtle import  Turtle
+from turtle import Turtle
 from turtle import *
 import turtle as t
 """
