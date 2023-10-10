@@ -1,6 +1,7 @@
 from turtle import Turtle, Screen
 import random
 
+# initialize the turtle and screen class
 cal = Turtle()
 cal.shape("turtle")
 cal.color("DarkViolet")
@@ -8,28 +9,34 @@ screen = Screen()
 screen.colormode(255)
 
 
+# generate a random color
 def random_color():
     return random.randint(0, 255)
 
 
+# return cal to original position
+def return_cal():
+    cal.clear()
+    cal.penup()
+    cal.home()
+    cal.pendown()
+    
+
 # challenge 1 - Draw a square
 for _ in range(4):
     cal.forward(100)
-    cal.right(90)
+    cal.right(90)  # turn to the right by 90 degrees
 
-cal.clear()
+return_cal()
 
 # challenge 2 - Draw a dashed line
 for _ in range(15):
+    cal.forward(10)  # move forward
+    cal.penup()  # stop drawing line
     cal.forward(10)
-    cal.penup()
-    cal.forward(10)
-    cal.pendown()
+    cal.pendown()  # draw line
 
-cal.clear()
-cal.penup()
-cal.home()
-cal.pendown()
+return_cal()
 
 # challenge 3 - Drawing different shapes
 circle_angle = 360
@@ -43,13 +50,7 @@ for _ in range(10):
     shape_sides += 1
     cal.pencolor((random_color(), random_color(), random_color()))  # change cal color
 
+return_cal()
 
-# # algorithmic patterns
-# for steps in range(100):
-#     for c in ('blue', 'red', 'green'):
-#         color(c)
-#         forward(steps)
-#         right(30)
-
-
+# exit
 screen.exitonclick()
