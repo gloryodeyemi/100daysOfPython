@@ -70,10 +70,10 @@ def return_cal():
 
 # challenge 4 - Random walk
 cal.hideturtle()
-for _ in range(200):
+for _ in range(300):
     cal.pen(pensize=10, speed=10, pencolor=(random_color(), random_color(), random_color()))
     random_direction()
-    cal.forward(20)
+    cal.forward(35)
 
 cal.showturtle()
 return_cal()
