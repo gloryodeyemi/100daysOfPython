@@ -40,21 +40,19 @@ screen = Screen()
 screen.colormode(255)
 height = screen.window_height()
 width = screen.window_width()
-screen.setworldcoordinates(-1, -1, screen.window_width() - 1, screen.window_height() - 1)
+screen.setworldcoordinates(-100, -100, screen.window_width() - 100, screen.window_height() - 100)
 
-initial_height = height
+initial_height = height - 50
 for i in range(10):
     cal.showturtle()
     for j in range(10):
         cal.pendown()
-        cal.dot(20)
+        cal.dot(20, random_color(color_list))
         cal.penup()  # stop drawing line
         cal.forward(50)
-        cal.color(random_color(color_list))
-
     cal.hideturtle()
-    initial_height -= 50
     cal.setpos(-1, height - initial_height)
+    initial_height -= 50
 cal.hideturtle()
 
 # exit
