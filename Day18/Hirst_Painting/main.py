@@ -12,11 +12,12 @@ def extract_colors(image):
         color = painting_colors[_].rgb
         color_tuple += (color.r, color.g, color.b)
         colors.append(color_tuple)
-
     return colors
 
 
 # print(extract_colors('image.jpeg'))
+
+# set color list
 color_list = [(174, 166, 150), (126, 99, 75), (232, 225, 229), (61, 101, 131), (132, 163, 182), (127, 76, 92),
               (18, 37, 60), (179, 142, 156), (61, 119, 94), (153, 139, 80), (196, 195, 178), (144, 172, 160),
               (64, 27, 40), (116, 36, 54), (172, 102, 121), (62, 39, 28), (74, 157, 137), (12, 99, 76), (185, 103, 85),
@@ -38,21 +39,26 @@ cal.speed("fast")
 # initialize the screen class
 screen = Screen()
 screen.colormode(255)
+
+# get the width and height of the screen
 height = screen.window_height()
 width = screen.window_width()
+
+# set the starting point of the turtle
 screen.setworldcoordinates(-100, -100, screen.window_width() - 100, screen.window_height() - 100)
 
 initial_height = height - 50
+# draw the dots
 for i in range(10):
-    cal.showturtle()
+    cal.showturtle()  # show the turtle
     for j in range(10):
-        cal.pendown()
+        cal.pendown()  # draw line
         cal.dot(20, random_color(color_list))
         cal.penup()  # stop drawing line
-        cal.forward(50)
-    cal.hideturtle()
-    cal.setpos(-1, height - initial_height)
-    initial_height -= 50
+        cal.forward(50)  # move 50 pace
+    cal.hideturtle()  # hide the turtle
+    cal.setpos(-1, height - initial_height)  # set the new position of the turtle
+    initial_height -= 50  # recalculate the height
 cal.hideturtle()
 
 # exit
