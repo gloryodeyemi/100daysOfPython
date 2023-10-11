@@ -5,7 +5,7 @@ import random
 cal = Turtle()
 cal.shape("turtle")
 cal.color("DarkViolet")
-cal.speed("fast")
+cal.speed("normal")
 screen = Screen()
 screen.colormode(255)
 
@@ -54,6 +54,7 @@ for _ in range(15):
     cal.pendown()  # draw line
 
 return_cal()
+cal.speed("fast")
 
 # challenge 3 - Drawing different shapes
 circle_angle = 360
