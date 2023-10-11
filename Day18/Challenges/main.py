@@ -5,6 +5,7 @@ import random
 cal = Turtle()
 cal.shape("turtle")
 cal.color("DarkViolet")
+cal.speed("fast")
 screen = Screen()
 screen.colormode(255)
 
@@ -39,37 +40,37 @@ def return_cal():
 
 
 # challenge 1 - Draw a square
-# for _ in range(4):
-#     cal.forward(100)
-#     cal.right(90)  # turn to the right by 90 degrees
-#
-# return_cal()
-#
-# # challenge 2 - Draw a dashed line
-# for _ in range(15):
-#     cal.forward(10)  # move forward
-#     cal.penup()  # stop drawing line
-#     cal.forward(10)
-#     cal.pendown()  # draw line
-#
-# return_cal()
-#
-# # challenge 3 - Drawing different shapes
-# circle_angle = 360
-# shape_sides = 3
-#
-# for _ in range(10):
-#     shape_angle = circle_angle / shape_sides
-#     for steps in range(shape_sides):
-#         cal.forward(100)
-#         cal.right(shape_angle)
-#     shape_sides += 1
-#     cal.pencolor((random_color(), random_color(), random_color()))  # change cal color
-#
-# return_cal()
+for _ in range(4):
+    cal.forward(100)
+    cal.right(90)  # turn to the right by 90 degrees
+
+return_cal()
+
+# challenge 2 - Draw a dashed line
+for _ in range(15):
+    cal.forward(10)  # move forward
+    cal.penup()  # stop drawing line
+    cal.forward(10)
+    cal.pendown()  # draw line
+
+return_cal()
+
+# challenge 3 - Drawing different shapes
+circle_angle = 360
+shape_sides = 3
+
+for _ in range(10):
+    shape_angle = circle_angle / shape_sides
+    for steps in range(shape_sides):
+        cal.forward(100)
+        cal.right(shape_angle)
+    shape_sides += 1
+    cal.pencolor((random_color(), random_color(), random_color()))  # change cal color
+
+return_cal()
+cal.speed("fastest")
 
 # challenge 4 - Random walk
-cal.speed("fastest")
 cal.hideturtle()
 for _ in range(300):
     cal.pen(pensize=10, pencolor=(random_color(), random_color(), random_color()))
