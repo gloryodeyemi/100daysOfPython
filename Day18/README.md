@@ -2,7 +2,7 @@
 
 **Stage:** Intermediate
 
-**Project:** The Hirst Painting (**try [here](https://replit.com/@GloryOdeyemi/Hirst-Painting?v=1)**)
+**Project:** The Hirst Painting (**try [here](https://replit.com/@GloryOdeyemi/Hirst-Painting?v=1)**).
 
 **Topics:**
 * Ways to import a module
