@@ -4,7 +4,7 @@
 
 **Project:** Calculator
 
-**Try calculator [here](https://replit.com/@GloryOdeyemi/Calculator?v=1).**
+**Try calculator [here](https://replit.com/@GloryOdeyemi/Calculator?v=1)**
 
 **Topics:**
 * Functions with outputs
