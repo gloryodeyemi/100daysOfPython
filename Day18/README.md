@@ -1,4 +1,4 @@
-## Day 10 - Turtle and the Graphical User Interface (GUI)
+## Day 18 - Turtle and the Graphical User Interface (GUI)
 
 **Stage:** Intermediate
 
