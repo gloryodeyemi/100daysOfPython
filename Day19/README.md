@@ -2,7 +2,7 @@
 
 **Stage:** Intermediate
 
-**Project:** Turtle Race (**try [here](https://replit.com/@GloryOdeyemi/Hirst-Painting?v=1)**).
+**Project:** Turtle Race (**try [here](https://replit.com/@GloryOdeyemi/Turtle-Race?v=1)**).
 
 **Topics:**
 * Instances
