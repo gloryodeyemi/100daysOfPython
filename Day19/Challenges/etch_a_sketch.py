@@ -15,11 +15,11 @@ def backward_move():
 
 
 def clockwise():
-    sketchy.right(45)
+    sketchy.right(10)
 
 
 def counter_clockwise():
-    sketchy.left(45)
+    sketchy.left(10)
 
 
 def clear():
