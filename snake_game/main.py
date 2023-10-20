@@ -1,9 +1,11 @@
 from turtle import Turtle, Screen
+import time
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snakelandia")
+screen.tracer(0)
 
 square_snakes = []
 
@@ -23,6 +25,16 @@ for index in range(3):
     new_snake.goto(x=x, y=y)
     square_snakes.append(new_snake)
     x -= 20
+screen.update()
+game_is_on = True
+
+while game_is_on:
+    screen.update()
+    time.sleep(0.1)
+    for square_index in range(2, 0, -1):
+        new_x = square_snakes[square_index - 1].xcor()
+        new_y = square_snakes[square_index - 1].ycor()
+        square_snakes[square_index].goto(new_x, new_y)
 
 
 screen.exitonclick()
