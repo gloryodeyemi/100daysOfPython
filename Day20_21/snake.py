@@ -17,6 +17,8 @@ class Snake:
     def create_snake(self):
         for position in STARTING_POSITIONS:
             self.add_square(position)
+            # if position == (0, 0):
+            #     self.square_snakes[0].shape("snake")
 
     def add_square(self, position):
         new_square = Turtle(shape="square")
