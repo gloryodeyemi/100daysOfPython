@@ -2,6 +2,7 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 from scoreboard import Scoreboard
+from divider import Divider
 import time
 
 # screen setup
@@ -20,6 +21,9 @@ ball = Ball()
 
 # create the scores
 score = Scoreboard()
+
+# create divider
+divider = Divider()
 
 screen.listen()
 screen.onkey(r_paddle.paddle_up, "Up")
