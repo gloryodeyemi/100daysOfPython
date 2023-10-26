@@ -50,6 +50,10 @@ while game_is_on:
 
     if food_count % 5 == 0 and food_count != 0:
         bonus_food.show_food()
+        # count = 10
+        # while count > 0:
+        #     count -= 1
+        # bonus_food.hide_food()
         # time.sleep(5)
 
     # detect collision with big food
