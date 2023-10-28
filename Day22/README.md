@@ -2,4 +2,4 @@
 
 **Stage:** Intermediate
 
-**Project:** Pong Game (**play [here](https://replit.com/@GloryOdeyemi/Pong-Game?v=1)**).
+**Project:** Pong Game (**play [here](https://replit.com/@GloryOdeyemi/Pong-Game?v=1)**)
