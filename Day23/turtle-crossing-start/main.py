@@ -21,11 +21,8 @@ game_count = 0
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    cars.add_car()
     cars.move()
-
-    # add a new car
-    if game_count % 6 == 0:
-        cars.add_car()
 
     # detect when turtle reach the end
     if player.ycor() > 280:
