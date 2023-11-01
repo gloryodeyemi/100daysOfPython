@@ -37,6 +37,5 @@ while game_is_on:
             level.game_over()
 
     game_count += 1
-    # print(f"Cars length: {len(cars.cars_list)}")
 
 screen.exitonclick()
