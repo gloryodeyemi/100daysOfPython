@@ -13,7 +13,7 @@ class CarManager:
 
     def add_car(self):
         random_chance = random.randint(1, 6)
-        if random_chance == 1:
+        if random_chance == 1 or random_chance == 3:
             new_car = Turtle(shape="square")
             new_car.shapesize(stretch_len=2, stretch_wid=1)
             new_car.color(random.choice(COLORS))
