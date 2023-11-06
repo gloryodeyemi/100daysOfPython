@@ -1,5 +1,5 @@
 # option 1
-file = open("/Users/new/Downloads/my_file.txt")
+file = open("../my_file.txt")
 contents = file.read()
 print(contents)
 file.close()
