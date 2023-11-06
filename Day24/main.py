@@ -24,3 +24,5 @@ with open("new_file.txt", 'w') as file:
 # Absolute file path - starts from the origin
 # Working directory - the directory or folder we are working from
 # Relative file path - starts from the working directory (use ./, ../, etc.)
+with open("../my_file.txt", 'a') as file:
+    file.write("\nI am the third text.")
