@@ -2,7 +2,7 @@
 
 **Stage:** Intermediate
 
-**Project:** U.S. States Game
+**Project:** U.S. States Game (play [here](https://replit.com/@GloryOdeyemi/USStatesGame?v=1))
 
 **Topics:**
 * **Reading CSV Data**
