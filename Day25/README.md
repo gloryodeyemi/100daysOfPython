@@ -1,4 +1,4 @@
-## Day 24 - Working with CSV Data and the Pandas Library
+## Day 25 - Working with CSV Data and the Pandas Library
 
 **Stage:** Intermediate
 
