@@ -25,6 +25,10 @@ while score < 50:
     # get user input
     user_answer = screen.textinput(title=f"{score}/50 Guess the state", prompt="Enter a state's name").title()
 
+    # exit the game
+    if user_answer == "Exit":
+        break
+
     # check if user input is a state in the US
     if user_answer in states_list and user_answer not in correct_guesses:
         state_index = states_list.index(user_answer)  # get the index
@@ -35,4 +39,9 @@ while score < 50:
         score += 1  # increment the score
         correct_guesses.append(user_answer)  # add user answer to correct guesses list.
 
-screen.exitonclick()
+# save states not guessed as csv
+states_to_learn = []
+for state in states_list:
+    if state not in correct_guesses:
+        states_to_learn.append(state)
+pd.Series(states_to_learn).reset_index(name="state").to_csv("states_to_learn.csv", index=False)
