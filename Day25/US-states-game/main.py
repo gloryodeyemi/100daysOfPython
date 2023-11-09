@@ -23,7 +23,8 @@ score = 0
 correct_guesses = []
 while score < 50:
     # get user input
-    user_answer = screen.textinput(title=f"{score}/50 Guess the state", prompt="Enter a state's name").title()
+    user_answer = screen.textinput(title=f"{score}/50 Guess the state",
+                                   prompt="Enter a state's name or 'exit' to quit").title()
 
     # exit the game
     if user_answer == "Exit":
