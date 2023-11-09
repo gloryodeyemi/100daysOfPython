@@ -1,6 +1,7 @@
 import turtle
 import pandas as pd
 
+# screen setup
 screen = turtle.Screen()
 screen.title("U.S. States Game")
 image = "blank_states_img.gif"
@@ -9,10 +10,11 @@ turtle.shape(image)
 
 # import that data
 states_data = pd.read_csv("50_states.csv")
-states_list = states_data['state'].to_list()
-x_cors = states_data['x'].to_list()
-y_cors = states_data['y'].to_list()
+states_list = states_data['state'].to_list()  # get the list of states
+x_cors = states_data['x'].to_list()  # get the x coordinates
+y_cors = states_data['y'].to_list()  # get the y coordinates
 
+# create a turtle instance
 write_turtle = turtle.Turtle()
 write_turtle.penup()
 write_turtle.hideturtle()
