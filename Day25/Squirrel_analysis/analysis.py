@@ -27,4 +27,4 @@ count_dict = {
 
 count_df = pd.DataFrame(count_dict)
 print(f"Colors in squirrel data:\n{count_df}\n")
-count_df.to_csv("squirrel_colors2", index=False)
+count_df.to_csv("squirrel_colors2.csv", index=False)
