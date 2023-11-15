@@ -12,8 +12,6 @@ name = "Glory"
 letters_list = [letter for letter in name]
 print(f"Name list: {letters_list}")
 
-# Python sequences - list, range, tuple, dictionary.
-
 doubled_numbers = [num * 2 for num in range(1, 5)]
 print(f"Doubled numbers list: {doubled_numbers}")
 
