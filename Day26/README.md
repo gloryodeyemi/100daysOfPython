@@ -2,7 +2,7 @@
 
 **Stage:** Intermediate
 
-**Project:** NATO Alphabet
+**Project:** NATO Alphabet (Try [here](https://replit.com/@GloryOdeyemi/NATOAlphabet?v=1))
 
 **Topics:**
 * Python sequences - list, range, tuple, dictionary.
