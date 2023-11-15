@@ -30,7 +30,6 @@ print("Dictionary Comprehension\n------------------------")
 score_dict = {name: random.randint(1, 100) for name in names}
 print(f"Student scores: {score_dict}")
 
-passed_students = {student: score for (student, score) in score_dict.items() if score > 50}
-print(f"Passed students: {passed_students}")
 # conditional dictionary comprehension
-
+passed_students = {student: score for (student, score) in score_dict.items() if score >= 60}
+print(f"Passed students: {passed_students}")
