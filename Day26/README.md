@@ -20,8 +20,12 @@ new_dict = {new_key:new_value for item in list}
 new_dict = {new_key:new_value for (key,value) in dict.items()}
 ```
 * Conditional Dictionary Comprehension
-
 ```
 new_dict = {new_key:new_value for item in list if test}
 new_dict = {new_key:new_value for (key,value) in dict.items() if test}
+```
+* Looping through a DataFrame
+```
+for (index, row) in df.iterrows():
+    print(f"Index {index}:{row}")
 ```

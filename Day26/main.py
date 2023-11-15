@@ -1,4 +1,5 @@
 import random
+import pandas as pd
 
 # list comprehension
 print("List Comprehension\n------------------")
@@ -32,4 +33,23 @@ print(f"Student scores: {score_dict}")
 
 # conditional dictionary comprehension
 passed_students = {student: score for (student, score) in score_dict.items() if score >= 60}
-print(f"Passed students: {passed_students}")
+print(f"Passed students: {passed_students}\n")
+
+# looping through a dictionary
+print("Looping through a dictionary\n----------------------------")
+student_dict = {
+    "student": ["Angela", "James", "Lily"],
+    "score": [56, 76, 98]
+}
+
+for (key, value) in student_dict.items():
+    print(f"{key}: {value}")
+
+# iterate over a Pandas DataFrame
+print("\nLooping through a DataFrame\n---------------------------")
+student_df = pd.DataFrame(student_dict)
+print(f"Student DataFrame:\n{student_df}\n")
+
+for (index, row) in student_df.iterrows():
+    print(f"Index {index}:\n{row}\n")
+    print(f"Student: {row.student}\nScore: {row.score}\n")
