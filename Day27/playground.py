@@ -1,4 +1,4 @@
-# unlimited positional arguments - *args is a tuple
+# unlimited positional arguments
 def add(*args):
     result = 0
     for num in args:
@@ -13,7 +13,7 @@ res2 = add(15, 3)
 print(f"Result 2 = {res2}")
 
 
-# unlimited positional arguments - *kwargs is a dictionary
+# unlimited positional arguments
 def calculate(n, **kwargs):
     n += kwargs["add"]
     n *= kwargs["multiply"]
