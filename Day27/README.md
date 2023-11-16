@@ -25,12 +25,12 @@ def add(*args):
         print(n)
 ```
 
-* Unlimited keywords arguments - *kwargs
+* Unlimited keywords arguments - **kwargs
   - the asteriks is important 
   - the name (kwargs) can be changed
-  - *kwargs is a dictionary
+  - **kwargs is a dictionary
 ```
-def func(*kwargs):
+def func(**kwargs):
     print(kwargs)
     for key, value in kwargs.items():
         print(f"{key}: {value}")
