@@ -35,3 +35,8 @@ def func(**kwargs):
     for key, value in kwargs.items():
         print(f"{key}: {value}")
 ```
+
+* TKinters layout managers
+  - pack()
+  - place() - precise positioning (works with coordinates).
+  - grid()
