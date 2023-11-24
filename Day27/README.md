@@ -38,5 +38,14 @@ def func(**kwargs):
 
 * TKinters layout managers
   - pack()
+    ```
+      label.pack(side="left")
+    ```
   - place() - precise positioning (works with coordinates).
+    ```
+      label.place(x=0, y=0)
+    ```
   - grid()
+    ```
+      label.grid(column=0, row=0)
+    ```
