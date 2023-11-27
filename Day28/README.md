@@ -2,6 +2,6 @@
 
 **Stage:** Intermediate
 
-**Project:**
+**Project:** Pomodoro GUI Application
 
 **Topics:**
