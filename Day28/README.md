@@ -5,4 +5,3 @@
 **Project:** Pomodoro GUI Application
 
 **Topics:**
-* 
