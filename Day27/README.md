@@ -26,7 +26,7 @@ def add(*args):
 ```
 
 * Unlimited keywords arguments - **kwargs
-  - the asteriks is important 
+  - the asteriks are important 
   - the name (kwargs) can be changed
   - **kwargs is a dictionary
 ```
