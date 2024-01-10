@@ -19,13 +19,15 @@ def reset():
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
-    countdown(WORK_MIN * 60)
+    countdown(int(0.5 * 60))
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def countdown(count):
     count_minute = math.floor(count / 60)
     count_seconds = count % 60
+    if count_seconds == 0 or count_seconds < 10:
+        count_seconds = f"0{count_seconds}"
 
     canvas.itemconfig(timer_text, text=f'{count_minute}:{count_seconds}')
     if count > 0:
