@@ -18,8 +18,9 @@ def save():
         with open("data-count.txt") as file:
             count = int(file.read())
     except:
-        count = 1
+        count = 0
 
+    count += 1
     with open('data.txt', 'a') as password_file:
         content = f"""Entry {count}:
 ---------
@@ -30,7 +31,6 @@ Password: {password_entry.get()}
 
 """
         password_file.write(content)
-    count += 1
 
     with open("data-count.txt", 'w') as count_file:
         count_file.write(str(count))
