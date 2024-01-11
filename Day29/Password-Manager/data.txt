@@ -22,3 +22,9 @@ Website: Test4
 Email/Username: test123@gmail.com
 Website URL: test4.com
 Password: 2h3uO%&UK6V8Al
+Entry 5:
+---------
+Website: Test7
+Email/Username: test123@gmail.com
+Website URL: test7.com
+Password: 2($2x)d+pawv53KKM
