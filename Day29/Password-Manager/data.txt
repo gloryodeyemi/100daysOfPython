@@ -10,3 +10,9 @@ Website: Test 2
 Email/Username: test123@gmail.com
 Website URL: test2.com
 Password: Test2
+Entry 3:
+---------
+Website: Test3
+Email/Username: test123@gmail.com
+Website URL: test3.com
+Password: Test3

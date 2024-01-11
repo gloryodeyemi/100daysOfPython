@@ -27,6 +27,8 @@ def save():
 
     if len(website) == 0 or len(url) == 0 or len(password) == 0 or len(email) == 0:
         messagebox.showerror(title="Missing details", message="Input field cannot be empty!")
+    elif '@' not in email or '.com' not in email:
+        messagebox.showerror(title="Invalid email", message="Email is not valid!")
     else:
         # save confirmation
         is_ok = messagebox.askokcancel(title=f"{website}", message=f"Confirm details:\nEmail/Username: {email}\n"
