@@ -2,6 +2,7 @@ from tkinter import *
 
 FONT_NAME = "Salsa"
 LABEL_WIDTH = 15
+data_count = 0
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -10,8 +11,24 @@ def generate_password():
 
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
+def save():
+    global data_count
+    data_count += 1
+    with open('data.txt', 'a') as password_file:
+        content = f"""Entry {data_count}:
+---------
+Website: {website_entry.get()}
+Email/Username: {email_entry.get()}
+Website URL: {url_entry.get()}
+Password: {password_entry.get()}
 
+"""
+        password_file.write(content)
 
+    # clear entries
+    website_entry.delete(0, 'end')
+    url_entry.delete(0, 'end')
+    password_entry.delete(0, 'end')
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -60,7 +77,7 @@ password_entry.grid(row=4, column=1)
 generate_button = Button(text="Generate Password", command=generate_password, width=11, font=(FONT_NAME, 12, "bold"))
 generate_button.grid(row=4, column=2)
 
-add_button = Button(text="Add", command=generate_password, width=34, font=(FONT_NAME, 12, "bold"))
+add_button = Button(text="Add", command=save, width=34, font=(FONT_NAME, 12, "bold"))
 add_button.grid(row=5, column=1, columnspan=2)
 
 window.mainloop()

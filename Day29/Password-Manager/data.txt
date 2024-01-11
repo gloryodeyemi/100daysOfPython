@@ -1,0 +1,14 @@
+Entry 1:
+---------
+Website: Twitter
+Email/Username: test123@gmail.com
+Website URL: https://www.x.com
+Password: MyPassword01!
+
+Entry 2:
+---------
+Website: Facebook
+Email/Username: test123@gmail.com
+Website URL: https://www.facebook.com
+Password: MyPassword02!
+
