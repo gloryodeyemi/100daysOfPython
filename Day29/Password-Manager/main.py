@@ -1,10 +1,8 @@
 from tkinter import *
+from tkinter import messagebox
 
 FONT_NAME = "Salsa"
 LABEL_WIDTH = 15
-# data_count = 1
-# with open("data-count.txt", 'w') as count_file:
-#     count_file.write(str(data_count))
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -21,21 +19,33 @@ def save():
     except:
         count = 0
 
-    # write password content to data file
-    count += 1
-    with (open('data.txt', 'a') as password_file):
-        content = (f"Entry {count}:\n---------\nWebsite: {website_entry.get()}\nEmail/Username: {email_entry.get()}\n"
-                  f"Website URL: {url_entry.get()}\nPassword: {password_entry.get()}\n")
-        password_file.write(content)
+    # get entries
+    website = website_entry.get()
+    email = email_entry.get()
+    url = url_entry.get()
+    password = password_entry.get()
 
-    # update the password count in the file
-    with open("data-count.txt", 'w') as count_file:
-        count_file.write(str(count))
+    # save confirmation
+    is_ok = messagebox.askokcancel(title=f"{website}", message=f"Confirm details:\nEmail/Username: {email}\n"
+                                                               f"Website URL: {url}\nPassword: {password}\n"
+                                                               f"Proceed to save?")
 
-    # clear entries
-    website_entry.delete(0, 'end')
-    url_entry.delete(0, 'end')
-    password_entry.delete(0, 'end')
+    if is_ok:
+        # write password content to data file
+        count += 1
+        with (open('data.txt', 'a') as password_file):
+            content = (f"Entry {count}:\n---------\nWebsite: {website}\nEmail/Username: {email}\nWebsite URL: {url}\n"
+                       f"Password: {password}\n")
+            password_file.write(content)
+
+        # update the password count in the file
+        with open("data-count.txt", 'w') as count_file:
+            count_file.write(str(count))
+
+        # clear entries
+        website_entry.delete(0, 'end')
+        url_entry.delete(0, 'end')
+        password_entry.delete(0, 'end')
 
 
 # ---------------------------- UI SETUP ------------------------------- #
