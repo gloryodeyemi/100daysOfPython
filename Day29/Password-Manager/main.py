@@ -25,27 +25,30 @@ def save():
     url = url_entry.get()
     password = password_entry.get()
 
-    # save confirmation
-    is_ok = messagebox.askokcancel(title=f"{website}", message=f"Confirm details:\nEmail/Username: {email}\n"
-                                                               f"Website URL: {url}\nPassword: {password}\n"
-                                                               f"Proceed to save?")
+    if len(website) == 0 or len(url) == 0 or len(password) == 0 or len(email) == 0:
+        messagebox.showerror(title="Missing details", message="Input field cannot be empty!")
+    else:
+        # save confirmation
+        is_ok = messagebox.askokcancel(title=f"{website}", message=f"Confirm details:\nEmail/Username: {email}\n"
+                                                                   f"Website URL: {url}\nPassword: {password}\n"
+                                                                   f"Proceed to save?")
 
-    if is_ok:
-        # write password content to data file
-        count += 1
-        with (open('data.txt', 'a') as password_file):
-            content = (f"Entry {count}:\n---------\nWebsite: {website}\nEmail/Username: {email}\nWebsite URL: {url}\n"
-                       f"Password: {password}\n")
-            password_file.write(content)
+        if is_ok:
+            # write password content to data file
+            count += 1
+            with open('data.txt', 'a') as password_file:
+                content = (f"Entry {count}:\n---------\nWebsite: {website}\nEmail/Username: {email}\nWebsite URL: {url}"
+                           f"\nPassword: {password}\n")
+                password_file.write(content)
 
-        # update the password count in the file
-        with open("data-count.txt", 'w') as count_file:
-            count_file.write(str(count))
+            # update the password count in the file
+            with open("data-count.txt", 'w') as count_file:
+                count_file.write(str(count))
 
-        # clear entries
-        website_entry.delete(0, 'end')
-        url_entry.delete(0, 'end')
-        password_entry.delete(0, 'end')
+            # clear entries
+            website_entry.delete(0, 'end')
+            url_entry.delete(0, 'end')
+            password_entry.delete(0, 'end')
 
 
 # ---------------------------- UI SETUP ------------------------------- #

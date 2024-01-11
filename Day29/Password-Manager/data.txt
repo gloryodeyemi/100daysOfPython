@@ -3,22 +3,10 @@ Entry 1:
 Website: Test
 Email/Username: test123@gmail.com
 Website URL: test.com
-Password: Test0!
+Password: Test
 Entry 2:
 ---------
-Website: 
-Email/Username: test123@gmail.com
-Website URL: 
-Password: 
-Entry 3:
----------
-Website: 
-Email/Username: test123@gmail.com
-Website URL: d
-Password: 
-Entry 4:
----------
-Website: Test2
+Website: Test 2
 Email/Username: test123@gmail.com
 Website URL: test2.com
-Password: Test2!
+Password: Test2
