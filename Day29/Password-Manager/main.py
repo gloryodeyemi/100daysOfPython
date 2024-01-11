@@ -14,24 +14,21 @@ def generate_password():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
+    # read password count from file
     try:
         with open("data-count.txt") as file:
             count = int(file.read())
     except:
         count = 0
 
+    # write password content to data file
     count += 1
-    with open('data.txt', 'a') as password_file:
-        content = f"""Entry {count}:
----------
-Website: {website_entry.get()}
-Email/Username: {email_entry.get()}
-Website URL: {url_entry.get()}
-Password: {password_entry.get()}
-
-"""
+    with (open('data.txt', 'a') as password_file):
+        content = (f"Entry {count}:\n---------\nWebsite: {website_entry.get()}\nEmail/Username: {email_entry.get()}\n"
+                  f"Website URL: {url_entry.get()}\nPassword: {password_entry.get()}\n")
         password_file.write(content)
 
+    # update the password count in the file
     with open("data-count.txt", 'w') as count_file:
         count_file.write(str(count))
 
