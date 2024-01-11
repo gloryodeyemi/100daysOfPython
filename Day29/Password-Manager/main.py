@@ -2,7 +2,9 @@ from tkinter import *
 
 FONT_NAME = "Salsa"
 LABEL_WIDTH = 15
-data_count = 0
+# data_count = 1
+# with open("data-count.txt", 'w') as count_file:
+#     count_file.write(str(data_count))
 
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -12,10 +14,14 @@ def generate_password():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
-    global data_count
-    data_count += 1
+    try:
+        with open("data-count.txt") as file:
+            count = int(file.read())
+    except:
+        count = 1
+
     with open('data.txt', 'a') as password_file:
-        content = f"""Entry {data_count}:
+        content = f"""Entry {count}:
 ---------
 Website: {website_entry.get()}
 Email/Username: {email_entry.get()}
@@ -24,6 +30,10 @@ Password: {password_entry.get()}
 
 """
         password_file.write(content)
+    count += 1
+
+    with open("data-count.txt", 'w') as count_file:
+        count_file.write(str(count))
 
     # clear entries
     website_entry.delete(0, 'end')
