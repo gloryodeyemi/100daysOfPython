@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import choice, randint, shuffle
 import pyperclip
+import json
 
 FONT_NAME = "Salsa"
 LABEL_WIDTH = 15
@@ -29,18 +30,18 @@ def generate_password():
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
-    # read password count from file
-    try:
-        with open("data-count.txt") as file:
-            count = int(file.read())
-    except:
-        count = 0
-
     # get entries
     website = website_entry.get()
     email = email_entry.get()
     url = url_entry.get()
     password = password_entry.get()
+    data = {
+        website: {
+            "email": email,
+            "url": url,
+            "password": password,
+        }
+    }
 
     # validation
     if len(website) == 0 or len(url) == 0 or len(password) == 0 or len(email) == 0:
@@ -48,23 +49,9 @@ def save():
     elif '@' not in email or '.com' not in email:
         messagebox.showerror(title="Invalid email", message="Email is not valid!")
     else:
-        # save confirmation
-        is_ok = messagebox.askokcancel(title=f"{website}", message=f"Confirm details:\nEmail/Username: {email}\n"
-                                                                   f"Website URL: {url}\nPassword: {password}\n"
-                                                                   f"Proceed to save?")
-
-        if is_ok:
-            # write password content to data file
-            count += 1
-            with open('data.txt', 'a') as password_file:
-                content = (f"Entry {count}:\n---------\nWebsite: {website}\nEmail/Username: {email}\nWebsite URL: {url}"
-                           f"\nPassword: {password}\n")
-                password_file.write(content)
-
-            # update the password count in the file
-            with open("data-count.txt", 'w') as count_file:
-                count_file.write(str(count))
-
+        # write password content to data file
+        with open('data.json', 'w') as password_file:
+            json.dump(data, password_file)
             # clear entries
             website_entry.delete(0, 'end')
             url_entry.delete(0, 'end')
