@@ -2,4 +2,6 @@
 
 **Stage:** Intermediate
 
-**Project:** Password Manager ([try here]())
+**Projects:** 
+* NATO Alphabet 2.0 ([try here]())
+* Password Manager 2.0 ([try here]())
