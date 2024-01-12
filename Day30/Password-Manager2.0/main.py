@@ -35,7 +35,7 @@ def save():
     email = email_entry.get()
     url = url_entry.get()
     password = password_entry.get()
-    data = {
+    new_data = {
         website: {
             "email": email,
             "url": url,
@@ -50,12 +50,17 @@ def save():
         messagebox.showerror(title="Invalid email", message="Email is not valid!")
     else:
         # write password content to data file
+        with open('data.json', 'r') as password_file:
+            data = json.load(password_file)  # read old data
+            data.update(new_data)  # update with new data
+
         with open('data.json', 'w') as password_file:
-            json.dump(data, password_file)
+            json.dump(data, password_file, indent=4)  # write updated data to file
+
             # clear entries
-            website_entry.delete(0, 'end')
-            url_entry.delete(0, 'end')
-            password_entry.delete(0, 'end')
+            website_entry.delete(0, END)
+            url_entry.delete(0, END)
+            password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
