@@ -52,18 +52,18 @@ def save():
         try:
             with open('data.json', 'r') as password_file:
                 data = json.load(password_file)  # read old data
-                data.update(new_data)  # update with new data
         except FileNotFoundError:
             with open('data.json', 'w') as password_file:
                 json.dump(new_data, password_file, indent=4)  # create json file and write to file
         else:
+            data.update(new_data)  # update with new data
             with open('data.json', 'w') as password_file:
                 json.dump(data, password_file, indent=4)  # write updated data to file
-
-        # clear entries
-        website_entry.delete(0, END)
-        url_entry.delete(0, END)
-        password_entry.delete(0, END)
+        finally:
+            # clear entries
+            website_entry.delete(0, END)
+            url_entry.delete(0, END)
+            password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
