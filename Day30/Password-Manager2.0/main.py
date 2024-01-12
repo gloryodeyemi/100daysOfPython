@@ -8,6 +8,19 @@ FONT_NAME = "Salsa"
 LABEL_WIDTH = 15
 
 
+# function to read json file
+def read_json():
+    with open('data.json', 'r') as password_file:
+        data = json.load(password_file)
+    return data
+
+
+# function to write to json file
+def write_json(new_data):
+    with open('data.json', 'w') as password_file:
+        json.dump(new_data, password_file, indent=4)
+
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def generate_password():
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
@@ -50,20 +63,33 @@ def save():
         messagebox.showerror(title="Invalid email", message="Email is not valid!")
     else:
         try:
-            with open('data.json', 'r') as password_file:
-                data = json.load(password_file)  # read old data
+            data = read_json()  # read old data
         except FileNotFoundError:
-            with open('data.json', 'w') as password_file:
-                json.dump(new_data, password_file, indent=4)  # create json file and write to file
+            write_json(new_data)  # create json file and write to file
         else:
             data.update(new_data)  # update with new data
-            with open('data.json', 'w') as password_file:
-                json.dump(data, password_file, indent=4)  # write updated data to file
+            write_json(data)  # write updated data to file
         finally:
             # clear entries
             website_entry.delete(0, END)
             url_entry.delete(0, END)
             password_entry.delete(0, END)
+
+
+# ---------------------------- SEARCH MECHANISM ------------------------------- #
+def find_password():
+    search_item = website_entry.get()
+    try:
+        data = read_json()
+    except FileNotFoundError:
+        messagebox.showerror(title=search_item, message="No Data File Found!")
+    else:
+        if search_item in data:
+            messagebox.showinfo(title=search_item, message=f"Email/Username: {data[search_item]['email']}\nWebsite URL: "
+                                                           f"{data[search_item]['url']}\nPassword: "
+                                                           f"{data[search_item]['password']}")
+        else:
+            messagebox.showerror(title=search_item, message="No details for the website exists!")
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -94,8 +120,8 @@ password_label.config(padx=10, pady=0)
 password_label.grid(row=4, column=0)
 
 # Entries
-website_entry = Entry(width=37)
-website_entry.grid(row=1, column=1, columnspan=2)
+website_entry = Entry(width=22)
+website_entry.grid(row=1, column=1)
 website_entry.focus()
 
 email_entry = Entry(width=37)
@@ -109,6 +135,9 @@ password_entry = Entry(width=22)
 password_entry.grid(row=4, column=1)
 
 # Buttons
+search_button = Button(text="Search", command=find_password, width=11, font=(FONT_NAME, 12, "bold"))
+search_button.grid(row=1, column=2)
+
 generate_button = Button(text="Generate Password", command=generate_password, width=11, font=(FONT_NAME, 12, "bold"))
 generate_button.grid(row=4, column=2)
 

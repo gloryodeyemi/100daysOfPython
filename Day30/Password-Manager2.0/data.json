@@ -1,17 +1,7 @@
 {
-    "Facebook": {
+    "Shopify": {
         "email": "test123@gmail.com",
-        "url": "https://www.facebook.com",
-        "password": "yw4Hz*o9a(1SH8"
-    },
-    "Twitter": {
-        "email": "test123@gmail.com",
-        "url": "https://www.x.com",
-        "password": "t1(8cOKm5sQs(!("
-    },
-    "Instagram": {
-        "email": "test123@gmail.com",
-        "url": "https://www.instagram.com",
-        "password": "8i4B!un8pD%XG"
+        "url": "https://www.shopify.com",
+        "password": "iX0XP&T0Aj4NR*"
     }
 }
