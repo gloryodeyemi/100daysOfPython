@@ -2,4 +2,4 @@
 
 **Stage:** Intermediate
 
-**Project:** Flash Card App ([try here]())
+**Project:** Flash Card App
