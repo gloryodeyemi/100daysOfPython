@@ -11,15 +11,18 @@ words_dictionary = words_data.to_dict(orient='records')
 current_word = {}
 
 
+# ---------------------- NEXT CARD ---------------------- #
 def next_card():
-    global current_word
+    global current_word, timer
+    window.after_cancel(timer)
     current_word = random.choice(words_dictionary)
     canvas.itemconfig(language_text, text="French", fill='black')
     canvas.itemconfig(word_text, text=current_word['French'], fill='black')
     canvas.itemconfig(canvas_image, image=front_image)
-    window.after(3000, func=flip_card)
+    timer = window.after(3000, func=flip_card)
 
 
+# ---------------------- FLIP CARD---------------------- #
 def flip_card():
     canvas.itemconfig(canvas_image, image=back_image)
     canvas.itemconfig(language_text, text="English", fill='White')
