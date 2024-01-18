@@ -14,10 +14,10 @@ current_word = {}
 def next_card():
     global current_word
     current_word = random.choice(words_dictionary)
-    canvas.itemconfig(language_text, text="French")
-    canvas.itemconfig(word_text, text=current_word['French'])
-
-    # window.after_cancel(timer)
+    canvas.itemconfig(language_text, text="French", fill='black')
+    canvas.itemconfig(word_text, text=current_word['French'], fill='black')
+    canvas.itemconfig(canvas_image, image=front_image)
+    window.after(3000, func=flip_card)
 
 
 def flip_card():
