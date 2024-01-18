@@ -49,5 +49,6 @@ right_image = PhotoImage(file="images/right.png")
 right_button = Button(image=right_image, command=right, bg=BACKGROUND_COLOR, highlightthickness=0)
 right_button.grid(row=1, column=1)
 
+next_card()
 
 window.mainloop()
