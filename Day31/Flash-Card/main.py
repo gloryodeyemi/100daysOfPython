@@ -6,8 +6,12 @@ BACKGROUND_COLOR = "#B1DDC6"
 FONT_NAME = "Ariel"
 
 # ---------------------- DATA PROCESSING ---------------------- #
-words_data = pd.read_csv('data/french_words.csv')
-words_dictionary = words_data.to_dict(orient='records')
+try:
+    words_data = pd.read_csv('data/words_to_learn.csv')
+except FileNotFoundError:
+    words_data = pd.read_csv('data/french_words.csv')
+
+words_to_learn = words_data.to_dict(orient='records')
 current_word = {}
 
 
@@ -15,7 +19,7 @@ current_word = {}
 def next_card():
     global current_word, timer
     window.after_cancel(timer)
-    current_word = random.choice(words_dictionary)
+    current_word = random.choice(words_to_learn)
     canvas.itemconfig(language_text, text="French", fill='black')
     canvas.itemconfig(word_text, text=current_word['French'], fill='black')
     canvas.itemconfig(canvas_image, image=front_image)
@@ -31,6 +35,10 @@ def flip_card():
 
 # ---------------------- RIGHT BUTTON ---------------------- #
 def right():
+    global current_word
+    words_to_learn.remove(current_word)
+    words_df = pd.DataFrame(words_to_learn)
+    words_df.to_csv("data/words_to_learn.csv", index=False)
     next_card()
 
 
