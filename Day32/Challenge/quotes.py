@@ -14,10 +14,6 @@ current_weekday = current_date.weekday()
 print(f"The current weekday is: {current_weekday}")
 
 # sending the email
-my_email = "glowcodes01@gmail.com"
-password = "ykefpbnmrbibdgyb"
-
-# GMAIL
 if current_weekday == 0:
     send_using_gmail("Weekly Motivation", random_quote)
 else:
