@@ -1,6 +1,6 @@
-import smtplib
 import datetime as dt
 import random
+from email_sender import send_using_gmail
 
 # getting the file
 with open("quotes.txt", "r") as quotes_file:
@@ -19,13 +19,6 @@ password = "ykefpbnmrbibdgyb"
 
 # GMAIL
 if current_weekday == 0:
-    with smtplib.SMTP("smtp.gmail.com") as connection:
-        connection.starttls()
-        connection.login(user=my_email, password=password)
-        connection.sendmail(
-            from_addr=my_email,
-            to_addrs="glowcodes@yahoo.com",
-            msg=f"Subject:Weekly Motivation\n\n{random_quote}"
-        )
+    send_using_gmail("Weekly Motivation", random_quote)
 else:
     print("I am not a monday")
