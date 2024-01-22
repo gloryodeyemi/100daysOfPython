@@ -1,7 +1,7 @@
 import smtplib
 
 MY_EMAIL = "glowcodes01@gmail.com"
-PASSWORD = "ykefpbnmrbibdgyb"
+PASSWORD = "*****************"
 MY_YAHOO_EMAIL = "glowcodes@yahoo.com"
 YAHOO_PASSWORD = "***************"  # currently not available
 
