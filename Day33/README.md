@@ -8,7 +8,8 @@
 * API (Application Programming Interface) - is a set of commands, functions, protocols, and objects that programmers can
 use to create software or interact with an external system.
 * API Endpoints - the location of the data, usually, the URL.
-* API Requests - 
+* API Requests
+* API Parameters
 * Response codes
   - 1xx - Hold on
   - 2xx - Here you go
