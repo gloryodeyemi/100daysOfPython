@@ -13,5 +13,5 @@ use to create software or interact with an external system.
   - 1xx - Hold on
   - 2xx - Here you go
   - 3xx - Go away
-  - 4xx - You screwed up
-  - 5xx - I screwed up (the server)
+  - 4xx - You screwed up (Client error)
+  - 5xx - I screwed up (Server error)
