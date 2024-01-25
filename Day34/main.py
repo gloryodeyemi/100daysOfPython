@@ -8,6 +8,6 @@ def police_check(age: int) -> bool:
 
 
 if police_check(19):
-    print("")
+    print("You can drive.")
 else:
     print("You have to pay a fine.")
