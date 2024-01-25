@@ -5,3 +5,8 @@
 **Project:** GUI Quiz App
 
 **Topic:**
+* Type Hints and Arrows
+    ```
+    def greeting(name: str) -> str:
+        return 'Hello ' + name
+    ```
