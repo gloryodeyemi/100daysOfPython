@@ -15,14 +15,14 @@ class QuizInterface:
 
         self.canvas = Canvas(bg="white", width=300, height=250, highlightthickness=0)
         self.quiz_text = self.canvas.create_text(150, 125, text="Quiz here", font=("Arial", 20, "italic"), fill="black")
-        self.canvas.grid(row=1, column=0, columnspan=2)
+        self.canvas.grid(row=1, column=0, columnspan=2, pady=50)
 
-        self.right_image = PhotoImage(file="images/true.png")
-        self.right_button = Button(image=self.right_image, bg=THEME_COLOR, highlightthickness=0)
-        self.right_button.grid(row=2, column=0)
+        self.false_image = PhotoImage(file="images/false.png")
+        self.false_button = Button(image=self.false_image, bg=THEME_COLOR, highlightthickness=0)
+        self.false_button.grid(row=2, column=0)
 
-        self.wrong_image = PhotoImage(file="images/false.png")
-        self.wrong_button = Button(image=self.wrong_image, bg=THEME_COLOR, highlightthickness=0)
-        self.wrong_button.grid(row=2, column=1)
+        self.true_image = PhotoImage(file="images/true.png")
+        self.true_button = Button(image=self.true_image, bg=THEME_COLOR, highlightthickness=0)
+        self.true_button.grid(row=2, column=1)
 
         self.window.mainloop()
