@@ -7,12 +7,11 @@ THEME_COLOR = "#375362"
 class QuizInterface:
     def __init__(self, quiz_brain: QuizBrain):
         self.quiz = quiz_brain
-        self.score = 0
         self.window = Tk()
         self.window.title("Quizzler")
         self.window.config(bg=THEME_COLOR, padx=20, pady=20)
 
-        self.score_label = Label(text=f"Score: {self.score}", fg="white", bg=THEME_COLOR)
+        self.score_label = Label(text=f"Score: 0", fg="white", bg=THEME_COLOR)
         self.score_label.grid(row=0, column=1)
 
         self.canvas = Canvas(bg="white", width=300, height=250, highlightthickness=0)
@@ -45,8 +44,12 @@ class QuizInterface:
         self.window.mainloop()
 
     def get_next_question(self):
-        q_text = self.quiz.next_question()
-        self.canvas.itemconfig(self.quiz_text, text=q_text)
+        if self.quiz.still_has_questions():
+            q_text = self.quiz.next_question()
+            self.canvas.itemconfig(self.quiz_text, text=q_text)
+        else:
+            self.canvas.itemconfig(self.quiz_text, text="Congratulations!!! You have reached the end of the quiz.")
+        self.score_label.config(text=f"Score: {self.quiz.score}")
         self.canvas.config(bg="white")
 
     def true_check(self):
