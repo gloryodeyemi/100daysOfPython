@@ -1,11 +1,17 @@
 import requests
+from twilio.rest import Client
+import os
 
-api_key = "***************"
+api_key = "*****************"
 weather_endpoint = "https://api.openweathermap.org/data/2.5/forecast"
 
+# Twilio details
+account_sid = '***************'
+auth_token = '****************'
+
 params = {
-    "lat": 23.130280,
-    "lon": 113.288879,
+    "lat": 6.877020,
+    "lon": -6.446750,
     "appid": api_key,
     "cnt": 4
 }
@@ -34,6 +40,15 @@ print(f"All weather codes: {weather_codes}")
 
 rainy = [cod for cod in weather_codes if cod < 700]
 if len(rainy) > 0:
-    print("Bring an umbrella")
+    # print("Bring an umbrella")
+    client = Client(account_sid, auth_token)
+
+    message = client.messages \
+        .create(
+            body="There's a high chance the sky is gonna cry today, so bring an umbrella along!☔️ Stay dry.",
+            from_='************',
+            to='*********'
+        )
+    print(message.status)
 else:
     print("Clear sky, you're good!")
