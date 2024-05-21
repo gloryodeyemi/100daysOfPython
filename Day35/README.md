@@ -3,5 +3,3 @@
 **Stage:** Intermediate
 
 **Project:** Rain SMS Alert
-
-**Topic:**
