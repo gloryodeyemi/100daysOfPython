@@ -1,4 +1,3 @@
-import math
 import requests
 from twilio.rest import Client
 import os
@@ -36,8 +35,13 @@ yesterday_price = float(stock_data_list[0]["4. close"])
 day_before_price = float(stock_data_list[1]["4. close"])
 
 # find the difference between prices
-price_diff = abs(yesterday_price - day_before_price)
-percentage_diff = (price_diff / yesterday_price) * 100
+price_diff = yesterday_price - day_before_price
+is_up_down = None
+if price_diff > 0:
+    is_up_down = "📈"
+else:
+    is_up_down = "📉"
+percentage_diff = (abs(price_diff) / yesterday_price) * 100
 
 print(f"Yesterday's price: {yesterday_price}\n"
       f"Day before price: {day_before_price}\n"
@@ -57,11 +61,14 @@ if percentage_diff > 1:
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
     news_response.raise_for_status()
     news_data = news_response.json()['articles'][:3]
-    print(f"{news_data}\n*****************************************\n")
+    print(f"{news_data}\n"
+          f"*****************************************\n")
 
     news_data_titles = [data["title"] for data in news_data]
     news_data_desc = [data["description"] for data in news_data]
-    print(f"Titles: {news_data_titles}\nDescriptions: {news_data_desc}\n*****************************************\n")
+    print(f"Titles: {news_data_titles}\n"
+          f"Descriptions: {news_data_desc}\n"
+          f"*****************************************\n")
 
     # send news as SMS using Twilio
     client = Client(ACCOUNT_SID, AUTH_TOKEN)
@@ -69,21 +76,9 @@ if percentage_diff > 1:
     for idx in range(3):
         message = client.messages \
             .create(
-                body=f"TSLA: 🔺{math.ceil(percentage_diff)}%\nHeadline: {news_data_titles[idx]}\n"
+                body=f"TSLA: {is_up_down}{round(percentage_diff)}%\nHeadline: {news_data_titles[idx]}\n"
                      f"Brief: {news_data_desc[idx]}",
-                from_='*****',
+                from_='******',
                 to='******'
             )
         print(message.status)
-
-
-# Optional: Format the SMS message like this:
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
