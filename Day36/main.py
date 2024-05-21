@@ -56,7 +56,7 @@ news_params = {
 }
 
 # get the news data
-if percentage_diff > 1:
+if percentage_diff > 5:
     # get the news data for Tesla
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
     news_response.raise_for_status()
