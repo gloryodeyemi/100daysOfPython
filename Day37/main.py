@@ -37,17 +37,18 @@ headers = {
 
 # posting a pixel
 today_date = datetime.now().strftime("%Y%m%d")
+date_to_post = datetime(year=2024, month=5, day=20).strftime("%Y%m%d")
 print(f"Today's date formatted: {today_date}")
 
 pixel_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs/{GRAPH_ID}"
 pixel_config = {
-    "date": today_date,
-    "quantity": "6",
-    "optionalData": '{"day": 37}'
+    "date": date_to_post,
+    "quantity": "3",
+    "optionalData": '{"day": 36}'
 }
 
-# pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
-# print(pixel_response.text)
+pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
+print(pixel_response.text)
 
 # update a pixel
 date_to_update = datetime(year=2024, month=5, day=20).strftime("%Y%m%d")
