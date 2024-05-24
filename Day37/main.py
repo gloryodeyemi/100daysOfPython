@@ -26,13 +26,6 @@ def create_user():
 def create_graph():
     # create a new graph
     graph_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs"
-    # graph_config = {
-    #     "id": GRAPH_ID,
-    #     "name": "100 Days of Python Graph",
-    #     "unit": "views",
-    #     "type": "int",
-    #     "color": "ajisai",
-    # }
     graph_config = {
         "id": input("Enter the graph id: "),
         "name": input("Enter the graph name: "),
@@ -53,35 +46,28 @@ def collect_date():
     else:
         post_year = int(input("Enter the year (eg., 2024): "))
         post_month = int(input("Enter the month (eg., 5): "))
-        post_day = int(input("Enter the day (eg., 24: "))
+        post_day = int(input("Enter the day (eg., 24): "))
         post_date = datetime(year=post_year, month=post_month, day=post_day).strftime("%Y%m%d")
     return post_date
 
 
 def collect_params():
-    optional_value = None
     graph_id = input("Enter the graph id: ")
     quantity = input("Enter the quantity? ")
-    optional = input("Do you want to add an optional data? (yes or no): ")
-    if optional == "yes":
-        optional_value = input("Enter the optional value: ")
 
-    optional_data = {
-        "optional": optional_value
-    }
-    return graph_id, quantity, optional_data
+    return graph_id, quantity
 
 
 def post_pixel():
     # posting a pixel
     post_date = collect_date()
-    graph_id, quantity, optional_data = collect_params()
+    graph_id, quantity = collect_params()
 
     pixel_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs/{graph_id}"
     pixel_config = {
         "date": post_date,
         "quantity": quantity,
-        "optionalData": f'{optional_data}'
+        # "optionalData": '{"optional": input("Enter the optional value: ")}'
     }
 
     pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=HEADERS)
@@ -91,13 +77,13 @@ def post_pixel():
 def update_and_delete_pixel(choice):
     # update a pixel
     date = collect_date()
-    graph_id, quantity, optional_data = collect_params()
+    graph_id, quantity = collect_params()
 
     endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs/{graph_id}/{date}"
     if choice == "update":
         update_config = {
             "quantity": quantity,
-            "optionalData": f'{optional_data}'
+            # "optionalData": '"optional": input("Enter the optional value: ")'
         }
 
         response = requests.put(url=endpoint, json=update_config, headers=HEADERS)
@@ -105,3 +91,23 @@ def update_and_delete_pixel(choice):
         response = requests.delete(url=endpoint, headers=HEADERS)
 
     print(response.text)
+
+
+print("******************\nPIXEL GRAPH API!!!\n******************")
+option = input("Good day! What would you like to do today? (create user, create graph, post, update, or delete): ")
+exit_loop = False
+while not exit_loop:
+    if option == "create user":
+        create_user()
+        exit_loop = True
+    elif option == "create graph":
+        create_graph()
+        exit_loop = True
+    elif option == "post":
+        post_pixel()
+        exit_loop = True
+    elif option == "update" or option == "delete":
+        update_and_delete_pixel(option)
+        exit_loop = True
+    else:
+        option = input("Invalid option, please choose again (create user, create graph, post, update, or delete): ")
