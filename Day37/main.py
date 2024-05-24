@@ -37,10 +37,9 @@ headers = {
 
 # posting a pixel
 today_date = datetime.now().strftime("%Y%m%d")
-yesterday_date = datetime(year=2024, month=5, day=23).strftime("%Y%m%d")
-print(f"Today's date formatted: {today_date}\nYesterday's date formatted: {yesterday_date}")
+print(f"Today's date formatted: {today_date}")
 
-pixel_endpoint = f"{graph_endpoint}/{GRAPH_ID}"
+pixel_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs/{GRAPH_ID}"
 pixel_config = {
     "date": today_date,
     "quantity": "6",
@@ -49,3 +48,18 @@ pixel_config = {
 
 # pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
 # print(pixel_response.text)
+
+# update a pixel
+date_to_update = datetime(year=2024, month=5, day=20).strftime("%Y%m%d")
+update_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs/{GRAPH_ID}/{date_to_update}"
+update_config = {
+    "quantity": "10",
+    "optionalData": '{"day": 36}'
+}
+
+# update_response = requests.put(url=update_endpoint, json=update_config, headers=headers)
+# print(update_response.text)
+
+# delete a pixel
+# delete_response = requests.delete(url=update_endpoint, headers=headers)
+# print(delete_response.text)
