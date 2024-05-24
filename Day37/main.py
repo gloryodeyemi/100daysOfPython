@@ -18,7 +18,7 @@ user_params = {
 
 # create a new graph
 graph_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs"
-graph_params = {
+graph_config = {
     "id": "graph1",
     "name": "100 Days of Python Graph",
     "unit": "views",
@@ -30,5 +30,16 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
-graph_response = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
-print(graph_response.text)
+# graph_response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(graph_response.text)
+
+# posting a pixel
+pixel_endpoint = f"{graph_endpoint}/graph1"
+pixel_config = {
+    "date": "20240524",
+    "quantity": "6",
+    "optionalData": '{"day": 37}'
+}
+
+pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
+print(pixel_response.text)
