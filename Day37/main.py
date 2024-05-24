@@ -1,9 +1,11 @@
 import os
 import requests
+from datetime import datetime
 
 TOKEN = os.environ.get('TOKEN')
 USERNAME = "glowcodes"
 PIXELA_ENDPOINT = "https://pixe.la/v1/users"
+GRAPH_ID = "graph1"
 
 # create pixela user
 user_params = {
@@ -19,7 +21,7 @@ user_params = {
 # create a new graph
 graph_endpoint = f"{PIXELA_ENDPOINT}/{USERNAME}/graphs"
 graph_config = {
-    "id": "graph1",
+    "id": GRAPH_ID,
     "name": "100 Days of Python Graph",
     "unit": "views",
     "type": "int",
@@ -34,12 +36,15 @@ headers = {
 # print(graph_response.text)
 
 # posting a pixel
-pixel_endpoint = f"{graph_endpoint}/graph1"
+today_date = datetime.now().strftime("%Y%m%d")
+print(f"Today's date formatted: {today_date}")
+
+pixel_endpoint = f"{graph_endpoint}/{GRAPH_ID}"
 pixel_config = {
-    "date": "20240524",
-    "quantity": "6",
-    "optionalData": '{"day": 37}'
+    "date": "20240520",
+    "quantity": "3",
+    "optionalData": '{"day": 36}'
 }
 
-pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
-print(pixel_response.text)
+# pixel_response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
+# print(pixel_response.text)
