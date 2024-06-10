@@ -13,7 +13,7 @@
 **Topics:**
 * Void elements: Elements without closing tag, i.e., a self-closing tag. Examples include:
     ```
-    <br/>
+    <br />
     <hr />
     <img src="", alt=""/>
     ```
