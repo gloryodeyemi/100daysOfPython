@@ -3,6 +3,3 @@
 **Stage:** Intermediate
 
 **Project:** Habit Tracking
-
-**Topics:**
-* Headers: 
