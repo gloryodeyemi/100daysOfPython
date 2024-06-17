@@ -33,3 +33,8 @@
 **Project:** Motivational Poster Website
 
 **Topics:**
+* Different font size representations includes;
+    * px: pixel (1/96th inch -> 0.26mm). It is a static size.
+    * pt: point (1/72nd inch -> 0.35mm). It is a static size.
+    * em: full width of an m (100% of parent). It is a relative size.
+    * rem: It is relative to the root of the html file (100% of root).
