@@ -27,3 +27,9 @@
     * Inline ```<tag style="css" />```
     * Internal ```<style>css</style>```
     * External ```<link href="style.css"/>```
+
+## Day 44 - Web Foundation - Intermediate CSS
+
+**Project:** Motivational Poster Website
+
+**Topics:**
