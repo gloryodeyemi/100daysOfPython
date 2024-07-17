@@ -7,13 +7,13 @@ yc_web_page = response.text
 
 soup = BeautifulSoup(yc_web_page, "html.parser")
 
-all_story_links = soup.find_all(name="span", class_="titleline")
-print(all_story_links)
+all_articles = soup.find_all(name="span", class_="titleline")
+print(all_articles)
 
-article_titles = [tag.find("a").getText() for tag in all_story_links]
+article_titles = [tag.find("a").getText() for tag in all_articles]
 print(article_titles)
 
-article_links = [tag.find("a").get("href") for tag in all_story_links]
+article_links = [tag.find("a").get("href") for tag in all_articles]
 print(article_links)
 
 article_votes = [int(vote.getText()[:-7]) for vote in soup.find_all(name="span", class_="score")]
