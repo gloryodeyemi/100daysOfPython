@@ -41,6 +41,7 @@ user = sp.current_user()
 
 # Search songs on spotify
 songs_URI = []
+count = 0
 for title in top_100_titles:
     try:
         uri = sp.search(
@@ -49,9 +50,10 @@ for title in top_100_titles:
         )
         track_uri = uri['tracks']['items'][0]["uri"]
     except Exception as e:
-        print(f"\nAn error occurred while searching for the songs: {e}")
+        print(f"\nAn error occurred while searching for the song - {top_100_titles[count]}: {e}")
     else:
         songs_URI.append(track_uri)
+    count += 1
 print(f"\nSongs found on Spotify and URIs saved to list.")
 
 # Create the Spotify playlist
@@ -66,7 +68,7 @@ try:
 except Exception as e:
     print(f"\nAn error occurred while creating the playlist: {e}")
 else:
-    print("\nPlaylist Information\n**********************")
+    print("\nPlaylist Information\n********************")
     pprint.pp(playlist)
 
 # Add songs to the Spotify playlist
@@ -78,4 +80,4 @@ try:
 except Exception as e:
     print(f"\nAn error occurred while adding songs to the playlist: {e}")
 else:
-    print(f"\nTracks added successfully- {add_tracks}")
+    print(f"\nTracks added successfully - {add_tracks}")
