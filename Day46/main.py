@@ -15,16 +15,17 @@ print(
 ░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝╚═╝░░╚═╝░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝╚══════╝
     """
 )
-desired_year = input("What year would you like to travel to? (Enter the date using this format YYYY-MM-DD): ")
+desired_date = input("What date would you like to travel to? (Enter the date using this format YYYY-MM-DD): ")
 
 # Scrape the top 100 song titles from Billboard Hot 100
-response = requests.get(F"https://www.billboard.com/charts/hot-100/{desired_year}/")
+response = requests.get(F"https://www.billboard.com/charts/hot-100/{desired_date}/")
 
 bill_page = response.text
 soup = BeautifulSoup(bill_page, "html.parser")
 
 top_100 = soup.select("li h3#title-of-a-story")
-top_100_titles = [title.getText().replace('\n', '').replace('\t', '').replace('\\', '') for title in top_100]
+# top_100_titles = [title.getText().replace('\n', '').replace('\t', '').replace('\\', '') for title in top_100]
+top_100_titles = [title.getText().strip() for title in top_100]
 print("\nThe Billboard Hot 100 are:")
 pprint.pp(top_100_titles)
 
@@ -45,7 +46,7 @@ count = 0
 for title in top_100_titles:
     try:
         uri = sp.search(
-            q=f"track:{title} year:{desired_year[:4]}",
+            q=f"track:{title} year:{desired_date[:4]}",
             type="track",
         )
         track_uri = uri['tracks']['items'][0]["uri"]
@@ -61,9 +62,9 @@ playlist = None
 try:
     playlist = sp.user_playlist_create(
         user=f"{user['id']}",
-        name=f"{desired_year} Billboard 100",
+        name=f"{desired_date} Billboard 100",
         public=False,
-        description=f"The Billboard 100 songs from {desired_year}."
+        description=f"The Billboard 100 songs from {desired_date}."
     )
 except Exception as e:
     print(f"\nAn error occurred while creating the playlist: {e}")
