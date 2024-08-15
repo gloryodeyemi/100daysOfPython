@@ -61,5 +61,5 @@ if product_price <= target_price:
     else:
         print("Email sent successfully!")
 else:
-    print(f"The current price is ${product_price}, which is still above ${target_price}, "
+    print(f"The current price is ${product_price}, which is still above ${target_price}0, "
           f"so you might have to try again later🥲.")
