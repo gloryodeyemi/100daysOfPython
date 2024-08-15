@@ -33,16 +33,17 @@ response = requests.get(PRODUCT_URL, headers=HEADERS)
 
 amazon_page = response.text
 soup = BeautifulSoup(amazon_page, "html.parser")
-print(soup)
+# print(soup.prettify())
 
 # Get the price
 product_price = float(soup.select_one("div.a-section span.a-price span.a-offscreen").getText().strip('$'))
-print(f"Here is the price:\n{product_price}\n")
+# print(f"Here is the price:\n{product_price}\n")
 
-# product_title = soup.select_one("span#productTitle")
+
+# Get the product title
 product_title = soup.find("span", id="productTitle").getText().split()
 product_title = ' '.join(product_title)
-print(f"Here is the product title:\n{product_title}")
+# print(f"Here is the product title:\n{product_title}")
 
 target_price = 20.00
 email_message = f"{product_title} is now ${product_price}. Go grab it asap!!!\n{PRODUCT_URL}"
