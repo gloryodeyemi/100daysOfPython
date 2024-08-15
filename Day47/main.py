@@ -33,17 +33,17 @@ response = requests.get(PRODUCT_URL, headers=HEADERS)
 
 amazon_page = response.text
 soup = BeautifulSoup(amazon_page, "html.parser")
-# print(soup.prettify())
+print(soup.prettify())
 
 # Get the price
-product_price = float(soup.select_one("div.a-section span.a-price span.a-offscreen").getText().strip('$'))
-# print(f"Here is the price:\n{product_price}\n")
+product_price = float(soup.select_one("span.a-offscreen").getText().strip('$'))
+print(f"Here is the price:\n{product_price}\n")
 
 
 # Get the product title
-product_title = soup.find("span", id="productTitle").getText().split()
+product_title = soup.find(id="productTitle").getText().split()
 product_title = ' '.join(product_title)
-# print(f"Here is the product title:\n{product_title}")
+print(f"Here is the product title:\n{product_title}")
 
 target_price = 18.00
 email_message = f"{product_title} is now ${product_price}. Go grab it asap!!!\n{PRODUCT_URL}"
@@ -57,9 +57,9 @@ if product_price <= target_price:
             body=email_message
         )
     except Exception as e:
-        print(f"Failed to send email: {e}")
+        print(f"\nFailed to send email: {e}")
     else:
-        print("Email sent successfully!")
+        print("\nEmail sent successfully!")
 else:
-    print(f"The current price is ${product_price}, which is still above ${target_price}0, "
+    print(f"\nThe current price is ${product_price}, which is still above your target price - ${target_price}0, "
           f"so you might have to try again later🥲.")
