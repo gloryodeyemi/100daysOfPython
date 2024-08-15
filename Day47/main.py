@@ -45,12 +45,12 @@ product_title = soup.find("span", id="productTitle").getText().split()
 product_title = ' '.join(product_title)
 # print(f"Here is the product title:\n{product_title}")
 
-target_price = 20.00
+target_price = 18.00
 email_message = f"{product_title} is now ${product_price}. Go grab it asap!!!\n{PRODUCT_URL}"
 # print(email_message)
 
 # Send email when product_price is below target price
-if product_price < target_price:
+if product_price <= target_price:
     try:
         send_using_gmail(
             subject="Amazon Low Price Alert!",
@@ -60,3 +60,6 @@ if product_price < target_price:
         print(f"Failed to send email: {e}")
     else:
         print("Email sent successfully!")
+else:
+    print(f"The current price is ${product_price}, which is still above ${target_price}, "
+          f"so you might have to try again later🥲.")
