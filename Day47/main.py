@@ -28,15 +28,15 @@ def send_using_gmail(subject, body, from_email=FROM_EMAIL, to_email=T0_EMAIL):
 
 
 # Scrape the Amazon product page
-product_url = "https://appbrewery.github.io/instant_pot/"
+product_url = "https://www.amazon.ca/gp/product/B0CSJSVYRX/ref=ox_sc_act_title_4?smid=A2R1IRV9LQHHA1&th=1"
 response = requests.get(product_url, headers=HEADERS)
 
 amazon_page = response.text
 soup = BeautifulSoup(amazon_page, "html.parser")
-print(soup.prettify())
+print(soup)
 
 # Get the price
-product_price = float(soup.select_one("span.a-price span.a-offscreen").getText().strip('$'))
+product_price = float(soup.select_one("div.a-section span.a-price span.a-offscreen").getText().strip('$'))
 print(f"Here is the price:\n{product_price}\n")
 
 # product_title = soup.select_one("span#productTitle")
@@ -44,18 +44,18 @@ product_title = soup.find("span", id="productTitle").getText().split()
 product_title = ' '.join(product_title)
 print(f"Here is the product title:\n{product_title}")
 
-target_price = 100.00
-email_message = f"{product_title} is now ${product_price}. Go grab it asap!!!\n{product_url}"
-print(email_message)
-
-# Send email when product_price is below target price
-if product_price < target_price:
-    try:
-        send_using_gmail(
-            subject="Amazon Low Price Alert!",
-            body=email_message
-        )
-    except Exception as e:
-        print(f"Failed to send email: {e}")
-    else:
-        print("Email sent successfully!")
+# target_price = 50.00
+# email_message = f"{product_title} is now ${product_price}. Go grab it asap!!!\n{product_url}"
+# print(email_message)
+#
+# # Send email when product_price is below target price
+# if product_price < target_price:
+#     try:
+#         send_using_gmail(
+#             subject="Amazon Low Price Alert!",
+#             body=email_message
+#         )
+#     except Exception as e:
+#         print(f"Failed to send email: {e}")
+#     else:
+#         print("Email sent successfully!")
