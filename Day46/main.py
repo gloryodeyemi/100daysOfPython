@@ -18,10 +18,10 @@ print(
 desired_date = input("What date would you like to travel to? (Enter the date using this format YYYY-MM-DD): ")
 
 # Scrape the top 100 song titles from Billboard Hot 100
-response = requests.get(F"https://www.billboard.com/charts/hot-100/{desired_date}/")
+response = requests.get(f"https://www.billboard.com/charts/hot-100/{desired_date}/")
 
-bill_page = response.text
-soup = BeautifulSoup(bill_page, "html.parser")
+billboard_page = response.text
+soup = BeautifulSoup(billboard_page, "html.parser")
 
 top_100 = soup.select("li h3#title-of-a-story")
 # top_100_titles = [title.getText().replace('\n', '').replace('\t', '').replace('\\', '') for title in top_100]
