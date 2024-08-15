@@ -12,6 +12,7 @@ FROM_EMAIL = os.getenv('EMAIL_ADDRESS')
 T0_EMAIL = os.getenv('TO_EMAIL')
 PASSWORD = os.getenv('EMAIL_PASSWORD')
 SMTP_ADDRESS = os.getenv('SMTP_ADDRESS')
+HEADERS = os.getenv('HEADERS')
 
 
 # Function to send email
@@ -28,7 +29,7 @@ def send_using_gmail(subject, body, from_email=FROM_EMAIL, to_email=T0_EMAIL):
 
 # Scrape the Amazon product page
 product_url = "https://appbrewery.github.io/instant_pot/"
-response = requests.get(product_url)
+response = requests.get(product_url, headers=HEADERS)
 
 amazon_page = response.text
 soup = BeautifulSoup(amazon_page, "html.parser")
