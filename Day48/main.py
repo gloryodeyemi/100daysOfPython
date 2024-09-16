@@ -23,5 +23,13 @@ print(search_bar.get_attribute("placeholder"))
 button = driver.find_element(By.ID, value="submit")
 print(button.size)
 
+# Find by CSS selector
+documentation_link = driver.find_element(By.CSS_SELECTOR, value=".documentation-widget a")
+print(documentation_link.text)
+
+# Find by XPath
+bug_link = driver.find_element(By.XPATH, value='//*[@id="site-map"]/div[2]/div/ul/li[3]/a')
+print(bug_link.text)
+
 # driver.close()  # closes a particular tab
 driver.quit()  # quits the entire browser
