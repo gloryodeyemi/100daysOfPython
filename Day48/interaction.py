@@ -35,6 +35,7 @@ email = driver.find_element(By.NAME, "email")
 email.send_keys("glowtest@gmail.com")
 
 button = driver.find_element(By.CLASS_NAME, "btn")
+# button = driver.find_element(By.CSS_SELECTOR, value="form button")  # Angela's solution
 button.click()
 
 
