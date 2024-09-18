@@ -42,14 +42,23 @@ store_item_ids = [
     'buyCursor'
 ]
 click_interval = 0.01
-purchase_check_interval = 10
+purchase_check_interval = 5
+game_duration = 300  # 5 minutes = 300 seconds
 
 # Continuous clicking loop
 try:
-    last_check_time = time.time()
-    print(f"Start time: {format_time(last_check_time)}")
+    start_time = time.time()
+    last_check_time = start_time
+    print(f"Start time: {format_time(start_time)}")
 
     while True:
+        # Check if 5 minutes have passed
+        if time.time() - start_time > game_duration:
+            print(f"Game duration of {game_duration / 60} minutes reached. Exiting Game...")
+            cookies_per_second = driver.find_element(By.ID, value="cps").text.split(":")[1].strip()
+            print(f"You generated {cookies_per_second} cookies per seconds. Well done!")
+            break
+
         cookie.click()
         time.sleep(click_interval)
 
