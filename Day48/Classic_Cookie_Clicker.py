@@ -38,10 +38,9 @@ def get_store_item_ids():
 
 
 # click_interval = 0.01
-purchase_check_interval = 5
+purchase_check_interval = 10
 game_duration = 300  # 5 minutes = 300 seconds
 store_item_ids = get_store_item_ids()  # Get the ids of the store items
-print(store_item_ids)
 
 # Continuous clicking loop
 try:
@@ -50,13 +49,6 @@ try:
     print(f"Start time: {format_time(start_time)}\n")
 
     while True:
-        # Check if 5 minutes have passed
-        if time.time() - start_time > game_duration:
-            print(f"Game duration of {game_duration / 60} minutes reached. Exiting Game...")
-            cookies_per_second = driver.find_element(By.ID, value="cps").text.split(":")[1].strip()
-            print(f"You generated {cookies_per_second} cookies per seconds. Well done!")
-            break
-
         cookie.click()
         # time.sleep(click_interval)
 
@@ -78,6 +70,13 @@ try:
             # Update the check time
             last_check_time = time.time()
             print(f"Last check time: {format_time(last_check_time)}\n")
+
+        # Check if 5 minutes have passed
+        if time.time() - start_time > game_duration:
+            print(f"Game duration of {game_duration / 60} minutes reached. Exiting Game...")
+            cookies_per_second = driver.find_element(By.ID, value="cps").text.split(":")[1].strip()
+            print(f"You generated {cookies_per_second} cookies per seconds. Well done!")
+            break
 
 except Exception as e:
     print(f"An error occurred: {e}")
