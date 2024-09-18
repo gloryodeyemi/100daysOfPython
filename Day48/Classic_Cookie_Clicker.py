@@ -31,16 +31,23 @@ def format_time(timestamp):
     return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))
 
 
-store_item_ids = [
-    'buyTime machine',
-    'buyPortal',
-    'buyAlchemy lab',
-    'buyShipment',
-    'buyMine',
-    'buyFactory',
-    'buyGrandma',
-    'buyCursor'
-]
+def get_store_item_ids():
+    store_items = driver.find_elements(by=By.CSS_SELECTOR, value="#store div")
+    item_ids = [item.get_attribute("id") for item in store_items]
+    item_ids.reverse()
+    return item_ids
+
+
+# store_item_ids = [
+#     'buyTime machine',
+#     'buyPortal',
+#     'buyAlchemy lab',
+#     'buyShipment',
+#     'buyMine',
+#     'buyFactory',
+#     'buyGrandma',
+#     'buyCursor'
+# ]
 click_interval = 0.01
 purchase_check_interval = 5
 game_duration = 300  # 5 minutes = 300 seconds
@@ -49,7 +56,7 @@ game_duration = 300  # 5 minutes = 300 seconds
 try:
     start_time = time.time()
     last_check_time = start_time
-    print(f"Start time: {format_time(start_time)}")
+    print(f"Start time: {format_time(start_time)}\n")
 
     while True:
         # Check if 5 minutes have passed
@@ -60,13 +67,14 @@ try:
             break
 
         cookie.click()
-        time.sleep(click_interval)
+        # time.sleep(click_interval)
 
         if time.time() - last_check_time >= purchase_check_interval:
             # Check how many cookies clicked
             cookies = convert_str_to_int(driver.find_element(By.ID, value="money").text)
             print(f"Cookies available: {cookies}")
             item_costs = get_store_cost()  # Get the current costs of the store items
+            store_item_ids = get_store_item_ids()  # Get the ids of the store items
 
             # Find the affordable store items to purchase
             for ind in range(len(store_item_ids)):
