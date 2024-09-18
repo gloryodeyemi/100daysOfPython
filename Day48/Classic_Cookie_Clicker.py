@@ -31,8 +31,16 @@ def format_time(timestamp):
     return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))
 
 
-store_ids = ['buyTime machine', 'buyPortal', 'buyAlchemy lab', 'buyShipment', 'buyMine', 'buyFactory', 'buyGrandma',
-             'buyCursor']
+store_item_ids = [
+    'buyTime machine',
+    'buyPortal',
+    'buyAlchemy lab',
+    'buyShipment',
+    'buyMine',
+    'buyFactory',
+    'buyGrandma',
+    'buyCursor'
+]
 click_interval = 0.01
 purchase_check_interval = 10
 
@@ -52,11 +60,11 @@ try:
             item_costs = get_store_cost()  # Get the current costs of the store items
 
             # Find the affordable store items to purchase
-            for ind in range(len(store_ids)):
+            for ind in range(len(store_item_ids)):
                 if cookies >= item_costs[ind]:
-                    item_to_buy = driver.find_element(By.ID, value=f"{store_ids[ind]}")
+                    item_to_buy = driver.find_element(By.ID, value=f"{store_item_ids[ind]}")
                     item_to_buy.click()
-                    print(f"Purchased item: {store_ids[ind]}")
+                    print(f"Purchased item: {store_item_ids[ind]}")
                     break
 
             # Update the check time
